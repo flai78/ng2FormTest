@@ -12,3 +12,10 @@ A simple starter project demonstrating the basic concepts of Angular 2.
 - run `npm start` to fire up dev server
 - open browser to [`http://localhost:3000`](http://localhost:3000)
 - if you want to use other port, open `package.json` file, then change port in `--port 3000` script
+
+
+Create a new repo at github.
+Clone the repo from fedorahosted to your local machine.
+git remote rename origin upstream
+git remote add origin URL_TO_GITHUB_REPO
+git push origin master
