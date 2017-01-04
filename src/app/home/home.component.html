@@ -38,9 +38,9 @@
         </div>
          <div class="form-group">
           <label>List</label>
-          <select class="form-control" name="lbItems" [(ngModel)]="model.selectItem">
-            <option *ngFor="let val of mySelectList">
-              {{val}}
+          <select class="form-control" name="lbItems" [(ngModel)]="model.selectedCultureItem">
+            <option *ngFor="let val of cultureList" [ngValue]="val">
+             {{val.code}}
             </option>
           </select>
         </div>

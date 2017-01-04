@@ -11,10 +11,10 @@ export class HttpClient {
 
     constructor(private http: Http) { }
 
-    private extractData(res: Response){
+    private extractData<T>(res: Response):T{
         
-        let body = res.json();
-        return body.fields || { };
+        let body:T = res.json();
+        return body;
     }
 
     private handleError(err: any){
@@ -24,7 +24,7 @@ export class HttpClient {
 
 
 
-    post(url: string, data: any): Observable<any> {
+    post<T>(url: string, data: any): Observable<T> {
 
         let body = JSON.stringify(data);
         let headers = new Headers({'Content-Type' : 'application/json'});
@@ -36,4 +36,19 @@ export class HttpClient {
                         .map(this.extractData)
                         .catch(this.handleError);
     }
+
+
+      get<T>(url: string): Observable<T> {
+
+        
+        let headers = new Headers({'Content-Type' : 'application/json'});
+        let options = new RequestOptions({headers : headers});
+
+        console.log('get: ', url)
+
+        return this.http.get(url)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
+
 } 
